@@ -6,8 +6,8 @@
 // @include     https://what.cd/forums.php?action=viewforum&*
 // @require     http://code.jquery.com/jquery-1.9.0.min.js
 // @grant       none
-// @version     1.0
-// @date        2013-01-21
+// @version     1.0.1
+// @date        2013-01-31
 // ==/UserScript==
 
 function OpenAllUnread() {
@@ -41,8 +41,9 @@ function OpenAllUnread() {
 	}
 }
 
-$('.linkbox').first().prepend('[', $('<a>',{
+$('.linkbox').first().prepend($('<a>',{
     text: 'Open all unread threads',
     href: '#',
-    click: function(){ OpenAllUnread(); return false; }
-}), '] ');
+    click: function(){ OpenAllUnread(); return false; },
+    class: 'brackets'
+}));
