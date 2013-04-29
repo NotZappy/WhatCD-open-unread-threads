@@ -5,10 +5,20 @@
 // @description Opens all unread threads in a forum in new tabs
 // @include     https://what.cd/forums.php?action=viewforum&*
 // @require     http://code.jquery.com/jquery-1.9.0.min.js
-// @grant       none
-// @version     1.0.1
-// @date        2013-01-31
+// @grant       GM_openInTab
+// @version     1.0.2
+// @date        2013-04-29
 // ==/UserScript==
+
+function Open(url) {
+	// Shamelessly stolen from https://userscripts.org/scripts/show/116673 -- thanks, hateradio!
+	try {
+		f = GM_openInTab;
+	} catch (e) {
+		f = function (url) { window.open(url); window.focus(); };
+	}
+	f(url);
+}
 
 function OpenAllUnread() {
 	//find all unread threads' <tr> tags
@@ -35,9 +45,7 @@ function OpenAllUnread() {
 		}
 		
 		//open a in new tab
-		a.target = '_blank';
-		a.click();
-		a.target = '';
+		Open(a.href);
 	}
 }
 
