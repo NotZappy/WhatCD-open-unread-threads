@@ -4,10 +4,11 @@
 // @namespace   Z4ppy.What.CD
 // @description Opens all unread threads in a forum in new tabs
 // @include     https://what.cd/forums.php?action=viewforum&*
+// @include     https://what.cd/forums.php?*&action=viewforum&*
 // @require     http://code.jquery.com/jquery-1.9.0.min.js
 // @grant       GM_openInTab
-// @version     1.0.2
-// @date        2013-04-29
+// @version     1.0.3
+// @date        2013-08-30
 // ==/UserScript==
 
 function Open(url) {
@@ -26,7 +27,7 @@ function OpenAllUnread() {
 	
 	//extract the thead links as well as the "Jump to last read" ones - we want to use the latter if it exists...
 	var unread_threadlinks = unread_trs.find('strong > a');
-	var unread_jumplinks = unread_trs.find('span[title="Jump to last read"] > a');
+	var unread_jumplinks = unread_trs.find('span.last_read > a');
 	
 	//go through the threadlinks, check if there's a "Jump to last read" for the current one, open the right one
 	var i_jump = 0;
