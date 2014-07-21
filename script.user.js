@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 function Open(url) {
-	// Shamelessly stolen from https://userscripts.org/scripts/show/116673 -- thanks, hateradio!
+	// Shamelessly stolen from the "Subscriptions To Tabs" userscript (https://greasyfork.org/scripts/1028-what-cd-subscriptions-to-tabs) -- thanks, hateradio!
 	try {
 		f = GM_openInTab;
 	} catch (e) {
